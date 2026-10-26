@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>simple20 Her</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,900;1,500&display=swap">
+<style>
+/* Layout: product site. Sticky nav; hero = promise left, the app itself right in a phone; then the invisible work crossed off, how it works (3 real steps), group rates, savings, six domains, sign-in, footer. One light look by choice: the brand has one ground. */
+:root{
+  --ink:#0A0A0A; --paper:#FFFFFF; --soft:#F7F6F4; --pink:#FF0A9A; --act:#EA3597; --blue:#1232F5;
+  --muted:#5C5C5C; --rule:#E2E0DC; --line:#6E6E6E; --tint:#FFE6F4;
+  --display:"Playfair Display","Bodoni Moda",Georgia,serif;
+  --sans:Inter,system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}
+.d{font-family:var(--display);font-weight:900;letter-spacing:-.01em}
+.it{font-family:var(--display);font-style:italic;font-weight:500}
+.p{color:var(--pink)} .b{color:var(--blue)} .m{color:var(--muted)}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h2{font-size:clamp(34px,4vw,52px);line-height:1.04;margin:16px 0 0;text-wrap:balance}
+.intro{font-size:18px;max-width:46ch;margin:20px 0 0;color:var(--muted)}
+section{padding-block:120px;scroll-margin-top:72px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+nav .w{display:flex;align-items:center;gap:40px;height:72px}
+.logo{font-size:24px;line-height:1;white-space:nowrap}
+.links{display:flex;gap:28px;list-style:none;margin:0 0 0 auto;padding:0;font-size:15px}
+.links a:hover{color:var(--muted)}
+.cta{background:var(--act);color:#fff;font:500 16px/1 var(--sans);padding:14px 22px;white-space:nowrap}
+.cta:hover{background:var(--ink)}
+
+/* hero */
+.hero{padding-block:88px 120px}
+.hero .w{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px;align-items:center}
+h1{font-size:clamp(48px,6.4vw,88px);line-height:.98;margin:0;text-wrap:balance}
+.sub{font-size:20px;line-height:1.5;margin:28px 0 0;max-width:30ch}
+.proof{display:flex;gap:48px;margin-top:40px;padding-top:28px;border-top:1px solid var(--rule)}
+.proof b{display:block;font-family:var(--display);font-weight:900;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.proof span{font-size:15px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-top:40px}
+.actions .cta{padding:20px 32px;font-size:18px}
+.actions a.lk{color:var(--blue);font-size:17px}
+
+/* phone */
+.stage{background:var(--soft);display:flex;justify-content:center;padding:48px 24px;position:relative;min-width:0}
+.phone{width:300px;max-width:100%;background:var(--paper);border:1px solid var(--rule);border-radius:36px;padding:14px;box-shadow:0 30px 60px -30px rgba(10,10,10,.25)}
+.screen{border-radius:24px;overflow:hidden;border:1px solid var(--rule);background:var(--paper);font-size:13px;line-height:1.4}
+.bar{display:flex;justify-content:space-between;padding:14px 16px 0;color:var(--blue);font-size:12px}
+.screen .ttl{font-family:var(--display);font-weight:900;font-size:30px;padding:8px 16px 0}
+.tabs{display:flex;gap:14px;padding:12px 16px 0;font-size:12px;border-bottom:1px solid var(--rule)}
+.tabs span{padding-bottom:8px}
+.tabs .on{border-bottom:2px solid var(--ink)}
+.grp{padding:12px 16px 4px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.row{display:flex;justify-content:space-between;gap:8px;padding:10px 16px;border-top:1px solid var(--rule)}
+.row .c{color:var(--muted);font-size:12px}
+.row .r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.saved{margin:14px 16px 16px;background:var(--tint);padding:10px 12px;font-size:12px}
+.saved b{font-weight:600}
+.float{position:absolute;right:18px;bottom:34px;background:var(--paper);border:1px solid var(--rule);padding:14px 16px;font-size:13px;width:210px;box-shadow:0 20px 40px -24px rgba(10,10,10,.3)}
+.float .n{font-family:var(--display);font-weight:900;font-size:24px;line-height:1.1}
+
+/* invisible work */
+.work{background:var(--soft)}
+.work .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.tasks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tasks li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.tasks s{font-family:var(--display);font-weight:900;font-size:clamp(22px,2.4vw,30px);line-height:1.15;text-decoration-color:var(--pink);text-decoration-thickness:3px}
+.tasks .gone{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--pink);white-space:nowrap}
+.loop{margin-top:28px;font-size:16px;color:var(--muted);max-width:44ch}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:64px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:24px;min-width:0}
+.step .n{font-family:var(--display);font-weight:900;font-size:56px;line-height:1}
+.step h3{font-size:22px;margin:16px 0 8px;font-weight:600}
+.step p{margin:0;color:var(--muted)}
+
+/* group rate */
+.rate .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
+.listing{border:1px solid var(--rule);padding:32px;max-width:460px;min-width:0}
+.listing .top{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.listing .nm{font-size:22px;font-weight:600}
+.price{font-variant-numeric:tabular-nums;white-space:nowrap}
+.price b{font-size:28px;font-family:var(--display);font-weight:900}
+.listing .meta{color:var(--muted);margin-top:4px}
+.prog{height:6px;background:var(--rule);border-radius:9999px;margin:28px 0 10px;overflow:hidden}
+.prog i{display:block;height:100%;width:75%;background:var(--pink);border-radius:9999px}
+.join{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px}
+.join .cta{padding:16px 28px;font-size:18px}
+.bullets{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:18px}
+.bullets li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px}
+.bullets li::before{content:"";width:10px;height:10px;margin-top:8px;background:var(--pink)}
+.bullets li:nth-child(2)::before{background:var(--blue)}
+.bullets li:nth-child(3)::before{background:var(--ink)}
+
+/* domains */
+.domains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:56px;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.domains div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:32px 28px;min-height:150px;min-width:0}
+.domains .k{font-family:var(--display);font-weight:900;font-size:28px;line-height:1.1}
+.domains p{margin:10px 0 0;color:var(--muted);font-size:15px}
+
+/* signup */
+.join-sec{background:var(--ink);color:var(--paper)}
+.join-sec .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:64px;align-items:center}
+.join-sec h2{color:var(--paper)}
+.join-sec .intro{color:#BDBDBD}
+.sso{display:grid;gap:12px}
+.sso button{display:flex;align-items:center;gap:16px;height:64px;padding:0 24px;background:var(--paper);color:var(--ink);border:0;border-radius:0;font:400 18px var(--sans);cursor:pointer;width:100%}
+.sso button:hover{background:var(--tint)}
+.sso svg{width:22px;height:22px;flex:none}
+.note{margin-top:16px;font-size:14px;color:#BDBDBD;min-height:1.4em}
+
+footer .w{padding-block:56px 40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;font-size:15px}
+footer .logo{font-size:28px}
+footer .m{max-width:40ch}
+.addr{user-select:all}
+
+@media (max-width:960px){
+  .links{display:none}
+  nav .w{justify-content:space-between}
+  .hero .w,.work .w,.rate .w,.join-sec .w{grid-template-columns:1fr;gap:48px}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .domains{grid-template-columns:repeat(2,minmax(0,1fr))}
+  section{padding-block:80px}
+}
+@media (max-width:560px){
+  .w{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .domains{grid-template-columns:1fr}
+  .proof{gap:28px}
+  .float{position:static;margin-top:16px;width:auto}
+  .stage{flex-direction:column;align-items:center}
+  .listing{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<nav aria-label="Main">
+  <div class="w">
+    <a href="#top" class="logo d">simple<span class="p">2</span><span class="b">0</span> Her</a>
+    <ul class="links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#rates">Group rates</a></li>
+      <li><a href="#family">Your family</a></li>
+    </ul>
+    <a class="cta" href="#start">Get started</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="w">
+    <div>
+      <h1 class="d">Helping moms save time, <span class="it">save money.</span></h1>
+      <p class="sub">The invisible family services research, verification and hunting you do, eliminated.</p>
+      <div class="proof">
+        <div><b>10–40%</b><span>less per service</span></div>
+        <div><b>1–5 hrs</b><span>back per activity</span></div>
+      </div>
+      <div class="actions"><a class="cta" href="#start">Get started</a><a class="lk" href="#how">See how it works</a></div>
+    </div>
+
+    <div class="stage" aria-label="The Kids screen in simple20 Her, with example family Mia and Leo">
+      <div class="phone"><div class="screen">
+        <div class="bar"><span>‹ Her map</span><span>23220</span></div>
+        <div class="ttl">Kids</div>
+        <div class="tabs"><span class="on">Everyone</span><span>Mia, 4</span><span>Leo, 7</span><span>+ Add kid</span></div>
+        <div class="grp">Same time</div>
+        <div class="row"><div>Swim school<div class="c">Swimming</div></div><div class="r">0.8 mi</div></div>
+        <div class="row"><div>Soccer club<div class="c">Soccer</div></div><div class="r"><b>$120</b><div class="c">usually $160</div></div></div>
+        <div class="row"><div>Math club<div class="c">Math enrichment</div></div><div class="r">1.3 mi</div></div>
+        <div class="grp">Same place</div>
+        <div class="row"><div>Aquatic center<div class="c">Swimming</div></div><div class="r">2.1 mi</div></div>
+        <div class="saved"><b>14 hours · $320</b> saved this quarter</div>
+      </div></div>
+      <div class="float"><div class="n">~3 hrs · $40</div><span class="m">saved on Leo's soccer</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="work" aria-labelledby="work-h">
+  <div class="w">
+    <div>
+      <span class="eyebrow">The invisible work</span>
+      <h2 class="d" id="work-h">Every new activity costs you 1–5 hours.</h2>
+      <p class="loop">Small businesses are hard to find and often don't call back. And it repeats: new activities monthly, a rethink every quarter, meals every day as tastes change.</p>
+    </div>
+    <ul class="tasks">
+      <li><s>Finding providers nearby</s><span class="gone">Done for you</span></li>
+      <li><s>Comparing prices</s><span class="gone">Done for you</span></li>
+      <li><s>Checking schedules fit</s><span class="gone">Done for you</span></li>
+      <li><s>Coordinating drop-offs</s><span class="gone">Done for you</span></li>
+      <li><s>Tracking family spend</s><span class="gone">Done for you</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-h">
+  <div class="w">
+    <span class="eyebrow">How it works</span>
+    <h2 class="d" id="how-h">Three steps. Then your map.</h2>
+    <div class="steps">
+      <div class="step"><div class="n p">1</div><h3>Sign in</h3><p>Google, Apple or Facebook. No forms.</p></div>
+      <div class="step"><div class="n b">2</div><h3>Tell us where</h3><p>Your location or zip code. Used only to find services nearby.</p></div>
+      <div class="step"><div class="n">3</div><h3>Add your kids</h3><p>Names and birthdates. Ages stay current on their own.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="rates" aria-labelledby="rates-h">
+  <div class="rate">
+    <div class="w">
+      <div>
+        <span class="eyebrow">Group rates</span>
+        <h2 class="d" id="rates-h">Families nearby, one better price.</h2>
+        <ul class="bullets">
+          <li>We gather families who want the same service, then negotiate with the business.</li>
+          <li>You see both prices: ours, and what it usually costs. Same service, same business.</li>
+          <li>Joining costs nothing. You book when the group fills.</li>
+        </ul>
+      </div>
+      <div class="listing" aria-label="Example listing">
+        <div class="top"><span class="nm">Tennis center</span><span class="price"><b>$120</b> <span class="m">· usually $160</span></span></div>
+        <div class="meta">Tennis · Leo, 7 · 1.5 mi</div>
+        <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="9" aria-label="Families joined"><i></i></div>
+        <div class="m" style="font-size:15px">9 of 12 families nearby. Group rate unlocks at 12.</div>
+        <div class="join"><span class="m" style="font-size:14px">Verified price and schedule</span><a class="cta" href="#start">Join</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="family" aria-labelledby="fam-h">
+  <div class="w">
+    <span class="eyebrow">Your family</span>
+    <h2 class="d" id="fam-h">Everything your family runs on, in one place.</h2>
+    <p class="intro">Each part asks for what it needs the first time you open it. Nothing up front.</p>
+    <div class="domains">
+      <div><span class="k">Kids</span><p>Activities that fit each age, and the ones that fit two kids at once.</p></div>
+      <div><span class="k">Self</span><p>What you want more of.</p></div>
+      <div><span class="k">Partner</span><p>Their name, then what they enjoy.</p></div>
+      <div><span class="k">House</span><p>The services that keep it running.</p></div>
+      <div><span class="k">Friends &amp; Community</span><p>The people around you.</p></div>
+      <div><span class="k">Parents</span><p>Care for the generation above.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="join-sec" id="start" aria-labelledby="start-h">
+  <div class="w">
+    <div>
+      <h2 class="d" id="start-h">Start saving <span class="it">this week.</span></h2>
+      <p class="intro">All savings, no ads. 20% of what we make goes to end kid hunger.</p>
+    </div>
+    <div>
+      <div class="sso">
+        <button type="button" id="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.7v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.9 3.6-4.9 6.7-4.9z"/></svg>Continue with Google</button>
+        <button type="button" id="a"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A0A0A" d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9a4.8 4.8 0 0 0-3.8-2c-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9a5 5 0 0 0-4.2 2.6c-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.5 1.3 0 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5.6-.8 1.1-1.8 1.4-2.8-.1 0-2.6-1-2.6-4.1zM13.9 5.1c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>Continue with Apple</button>
+        <button type="button" id="f"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.4 24v-8.4h2.8l.4-3.3h-3.2v-2.1c0-.9.3-1.6 1.6-1.6h1.7V5.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.2v3.3H10V24z"/></svg>Continue with Facebook</button>
+      </div>
+      <p class="note" id="note" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <div><div class="logo d">simple<span class="p">2</span><span class="b">0</span> Her</div><p class="m" style="margin:10px 0 0">Helping moms save time, save money.</p></div>
+    <div class="m">20% of what we make goes to end kid hunger.<br><span class="addr">nokidhungry@simple20.com</span><br>© 2026 simple20</div>
+  </div>
+</footer>
+
+<script>
+['g','a','f'].forEach(function(id){
+  document.getElementById(id).addEventListener('click',function(){
+    document.getElementById('note').textContent='Sign-in connects when the app goes live.';
+  });
+});
+</script>
+
+</body>
+</html>
